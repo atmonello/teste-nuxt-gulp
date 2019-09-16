@@ -1,5 +1,10 @@
 <template>
-  <div>
+  <main>
     <nuxt />
-  </div>
+  </main>
 </template>
+
+<style lang="sass" scoped>
+main
+  height: 100vh
+</style>

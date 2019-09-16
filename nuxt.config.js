@@ -49,6 +49,7 @@ export default {
   ],
   styleResources: {
     sass: [
+      './assets/styles/vars/*.sass'
     ]
   },
   /*
