@@ -1,6 +1,4 @@
-# teste_pleno
-
-> Teste - Frontend Pleno - AfferoLab
+# Teste - Nuxt.js + Gulp.js
 
 ## Build Setup
 
