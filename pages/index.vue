@@ -27,14 +27,11 @@
       p, h1
         color: $color-purple
 
-      h1
-        font-weight: bolder
-
       p
         font-size: 1.25rem
 
       button
-        background-image: linear-gradient(45deg, $color-red, $color-purple)
+        background-image: $gradient-button
         border: none
         border-radius: 8px
         color: #fff
@@ -42,12 +39,9 @@
         font-weight: bold
         font-size: 1.33rem
         box-shadow: 0 0 30px -15px $color-red
-        transition: all 0.1s ease-out
 
         &:hover
-          transform: scale(1.025)
           padding: 8px 20px
-          transition: all 0.15s ease-in
 </style>
 
 <script>
