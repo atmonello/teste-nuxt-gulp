@@ -60,6 +60,9 @@ export default {
       redirect('/instrucoes');
     }
   },
+  head: {
+    title: 'André Monello'
+  },
   methods: {
     ...mapActions({
       setQuizStart: 'setQuizStart'

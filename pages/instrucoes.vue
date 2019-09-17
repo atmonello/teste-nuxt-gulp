@@ -9,9 +9,8 @@
 
 <script>
 export default {
-  data () {
-    return {
-    };
+  head: {
+    title: 'Instruções'
   }
 };
 </script>
