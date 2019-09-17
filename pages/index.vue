@@ -40,9 +40,10 @@
         font-weight: bold
         font-size: 1.33rem
         box-shadow: 0 0 30px -15px $color-red
+        transition: all 0.1s ease-out
 
         &:hover
           transform: scale(1.025)
           padding: 8px 20px
-          transition: all 0.15s ease-out
+          transition: all 0.15s ease-in
 </style>
