@@ -3,7 +3,9 @@
     <div class="page--intro__container">
       <h1>Game Quiz</h1>
       <p>Seja bem-vindo(a)! A partir de agora, você terá a oportunidade de colocar em prática tudo o que já aprendeu. Para isso, será necessário superar alguns desafios, tomando a <strong>melhor decisão para você, para o cliente e para o negócio.</strong> Está preparado?</p>
-      <button>Clique aqui para aceitar o desafio!</button>
+      <button @click="startQuiz">
+        Clique aqui para aceitar o desafio!
+      </button>
     </div>
   </div>
 </template>
@@ -47,3 +49,25 @@
           padding: 8px 20px
           transition: all 0.15s ease-in
 </style>
+
+<script>
+import { mapActions } from 'vuex';
+
+export default {
+  asyncData ({ store, redirect }) {
+    const isStarted = store.getters.getQuizStart;
+    if (isStarted) {
+      redirect('/instrucoes');
+    }
+  },
+  methods: {
+    ...mapActions({
+      setQuizStart: 'setQuizStart'
+    }),
+    startQuiz () {
+      this.setQuizStart(true);
+      this.$router.push('/instrucoes');
+    }
+  }
+};
+</script>
