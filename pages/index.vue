@@ -39,9 +39,6 @@
         font-weight: bold
         font-size: 1.33rem
         box-shadow: 0 0 30px -15px $color-red
-
-        &:hover
-          padding: 8px 20px
 </style>
 
 <script>

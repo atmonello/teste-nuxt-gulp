@@ -1,7 +1,7 @@
 <template>
   <div class="question question--wrapper">
     <p class="question--wrapper--text">
-      {{ question.text }}
+      <strong>Questão {{ question.id }}: </strong>{{ question.text }}
     </p>
     <ol class="question--wrapper--alternatives">
       <li v-for="(alt, index) in question.alternatives" :key="index" :class="{selected: index === selectedAlternative, inactive: selectedAlternative !== null}" @click="selectAlternative($event, index)">

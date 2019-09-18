@@ -71,8 +71,6 @@
         margin: auto
         width: 160px
 
-        &:hover
-          padding: 8px 20px
     &__score
       position: fixed
       top: 0

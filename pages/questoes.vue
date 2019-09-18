@@ -74,9 +74,6 @@
         margin: auto
         width: 160px
 
-        &:hover
-          padding: 8px 20px
-
 @keyframes rotate-img
   0%
     transform: rotateZ(0deg)
