@@ -17,6 +17,9 @@ const Getters = {
   },
   getCurrentQuestion (state) {
     return state.currentQuestion;
+  },
+  getQuizFinished (state) {
+    return state.quizFinished;
   }
 };
 

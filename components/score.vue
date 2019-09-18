@@ -1,7 +1,7 @@
 <template>
   <div class="score score--wrapper" :class="{'score--wrapper__vertical': isVertical}">
-    <img class="score--wrapper--image" src="~assets/img/arte_indicadores.png" alt="">
-    <div class="score--wrapper--list">
+    <img v-if="!finalResult" class="score--wrapper--image" src="~assets/img/arte_indicadores.png" alt="Logo">
+    <div class="score--wrapper--list" :class="{'score--wrapper--list__final': finalResult}">
       <ul>
         <indicator :score-title="'Satisfação do Cliente'" :score-value="!isVertical ? satisfaction : 50" />
         <indicator :score-title="'Fidelização'" :score-value="!isVertical ? loyalty : 50" />
@@ -12,7 +12,6 @@
 
 <style lang="sass" scoped>
 .score
-
   &--wrapper
     display: flex
     align-items: center
@@ -38,6 +37,9 @@
       margin: 0 8px
       padding: 8px
 
+      &__final
+        background-color: unset
+
       ul
         list-style: none
         margin: 0
@@ -54,6 +56,10 @@ export default {
   },
   props: {
     isVertical: {
+      required: false,
+      type: Boolean
+    },
+    finalResult: {
       required: false,
       type: Boolean
     }

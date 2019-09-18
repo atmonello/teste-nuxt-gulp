@@ -14,6 +14,9 @@ const Actions = {
   updateCurrentQuestion ({ commit }, data) {
     commit('updateCurrentQuestion', data);
     commit('removeQuestionFromList', data);
+  },
+  setQuizFinished ({ commit }, data) {
+    commit('setQuizFinished', data);
   }
 };
 

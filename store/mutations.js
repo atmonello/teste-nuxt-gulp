@@ -16,6 +16,9 @@ const Mutations = {
   },
   removeQuestionFromList (state, data) {
     state.questionsList.splice(data, 1);
+  },
+  setQuizFinished (state, data) {
+    state.quizFinished = data;
   }
 };
 

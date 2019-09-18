@@ -1,7 +1,7 @@
 <template>
   <main>
     <nuxt />
-    <aside v-if="getQuizStart" class="main--score">
+    <aside v-if="getQuizStart && !getQuizFinished" class="main--score">
       <score />
     </aside>
   </main>
@@ -27,7 +27,7 @@ export default {
     Score
   },
   computed: {
-    ...mapGetters(['getQuizStart'])
+    ...mapGetters(['getQuizStart', 'getQuizFinished'])
   }
 };
 </script>

@@ -9,7 +9,7 @@
           CONFIRMAR
         </button>
       </section>
-      <img src="~assets/img/arte_quiz.png" alt="">
+      <img src="~assets/img/arte_quiz.png" alt="Logo">
     </div>
   </div>
 </template>
@@ -102,7 +102,7 @@ export default {
   watch: {
     totalQuestions (val) {
       if (val <= 0) {
-        this.$router.push('/');
+        this.$router.push('/resultado');
       }
     }
   },
