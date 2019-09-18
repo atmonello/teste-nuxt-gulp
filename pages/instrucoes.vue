@@ -19,7 +19,9 @@
 <style lang="sass" scoped>
 .page
   &--instrucoes
-    background-color: wheat
+    background-image: url('~assets/img/bg2.png')
+    background-repeat: no-repeat
+    background-size: cover
     padding: 2rem 5rem
     position: relative
 

@@ -17,27 +17,39 @@
 <style lang="sass" scoped>
 .page
   &--resultado
-    background-color: wheat
+    background-image: url('~assets/img/bg4.png')
+    background-repeat: no-repeat
+    background-size: cover
     display: flex
     align-items: center
     justify-content: center
+    padding: 2rem 5rem
+    position: relative
 
+    &::before
+      content: ''
+      position: fixed
+      top: 0
+      left: 0
+      width: 100vw
+      height: 100vh
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8))
     &--wrapper
       background-color: $color-red
       border-radius: 10px
-      position: relative
       color: #fff
       padding: 24px
       z-index: 0
       width: 640px
+      position: relative
 
       &::after
         content: ''
         position: absolute
-        width: calc(100% + 10px)
-        height: calc(100% + 10px)
-        top: -5px
-        left: -5px
+        width: calc(100% + 20px)
+        height: calc(100% + 20px)
+        top: -10px
+        left: -10px
         border-radius: 10px
         border: 1px solid $color-red
         z-index: -1

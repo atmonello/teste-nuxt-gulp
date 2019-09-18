@@ -17,7 +17,9 @@
 <style lang="sass" scoped>
 .page
   &--questoes
-    background-color: wheat
+    background-image: url('~assets/img/bg3.png')
+    background-repeat: no-repeat
+    background-size: cover
     padding: 2rem 5rem
     position: relative
 
