@@ -30,6 +30,11 @@
         z-index: 0
         width: 750px
         top: 150px
+        animation-name: rotate-img
+        animation-duration: 120s
+        animation-timing-function: linear
+        animation-fill-mode: forwards
+        animation-iteration-count: infinite
 
     &__wrapper
       width: 800px
@@ -71,6 +76,12 @@
 
         &:hover
           padding: 8px 20px
+
+@keyframes rotate-img
+  0%
+    transform: rotateZ(0deg)
+  100%
+    transform: rotateZ(360deg)
 </style>
 
 <script>
