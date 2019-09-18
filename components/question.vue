@@ -69,7 +69,6 @@ export default {
   methods: {
     ...mapActions(['updateLoyalty', 'updateSatisfaction']),
     selectAlternative (evt, index, option) {
-      console.log('SELECT ALTERNATIVE', { evt, index, option });
       this.selectedAlternative = index;
 
       const { loyalty, satisfaction } = option;

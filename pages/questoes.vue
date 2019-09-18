@@ -104,6 +104,12 @@ export default {
     return {
       questionID
     };
+  },
+  validate ({ store, redirect }) {
+    if (!store.getters.getQuizStart) {
+      redirect('/');
+    }
+    return true;
   }
 };
 </script>

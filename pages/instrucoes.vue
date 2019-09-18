@@ -82,6 +82,13 @@ export default {
     startQuestions () {
       this.$router.push('/questoes');
     }
+  },
+  validate ({ store, redirect }) {
+    console.log('validate', store.getters.getQuizStart);
+    if (!store.getters.getQuizStart) {
+      redirect('/');
+    }
+    return true;
   }
 };
 </script>
