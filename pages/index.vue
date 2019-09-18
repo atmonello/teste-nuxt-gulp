@@ -1,6 +1,6 @@
 <template>
   <div class="page page--intro">
-    <div class="page--intro__container">
+    <div class="page--intro--container">
       <h1>Game Quiz</h1>
       <p>Seja bem-vindo(a)! A partir de agora, você terá a oportunidade de colocar em prática tudo o que já aprendeu. Para isso, será necessário superar alguns desafios, tomando a <strong>melhor decisão para você, para o cliente e para o negócio.</strong> Está preparado?</p>
       <button @click="startQuiz">
@@ -14,11 +14,8 @@
 .page
   &--intro
     background-image: url('~assets/img/bg1.png')
-    background-size: cover
-    background-repeat: no-repeat
-    padding: 2rem 5rem
 
-    &__container
+    &--container
       height: inherit
       display: flex
       flex-direction: column

@@ -1,7 +1,7 @@
 <template>
   <div class="page page--instrucoes">
-    <div class="page--instrucoes__container">
-      <section class="page--instrucoes__wrapper">
+    <div class="page--instrucoes--container">
+      <section class="page--instrucoes--wrapper">
         <article>
           <p>Ao lado, estão os três indicadores do <em>game</em>. Quando você tomar suas decisões, eles poderão aumentar ou diminuir. Por isso, acompanhe-os para saber sua evolução no jogo.</p>
           <p>Você iniciará o <em>game</em> com os indicadores zerados. No decorrer do jogo, eles serão impactados por todas as suas decisões. Então, fique atento!</p>
@@ -20,12 +20,8 @@
 .page
   &--instrucoes
     background-image: url('~assets/img/bg2.png')
-    background-repeat: no-repeat
-    background-size: cover
-    padding: 2rem 5rem
-    position: relative
 
-    &__container
+    &--container
       height: inherit
       display: flex
       flex-direction: column
@@ -33,7 +29,7 @@
       color: #fff
       width: 800px
 
-    &__wrapper
+    &--wrapper
       background-color: $color-red
       padding: 32px 20px
       border-radius: 16px

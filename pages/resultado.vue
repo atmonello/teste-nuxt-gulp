@@ -18,13 +18,9 @@
 .page
   &--resultado
     background-image: url('~assets/img/bg4.png')
-    background-repeat: no-repeat
-    background-size: cover
     display: flex
     align-items: center
     justify-content: center
-    padding: 2rem 5rem
-    position: relative
 
     &::before
       content: ''

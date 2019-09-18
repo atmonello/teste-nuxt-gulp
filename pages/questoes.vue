@@ -1,11 +1,11 @@
 <template>
   <div class="page page--questoes">
-    <div class="page--questoes__container">
-      <section class="page--questoes__wrapper">
+    <div class="page--questoes--container">
+      <section class="page--questoes--wrapper">
         <article>
           <question :question="currentQuestion" />
         </article>
-        <button @click="updateQuestionID">
+        <button @click="nextQuestion">
           CONFIRMAR
         </button>
       </section>
@@ -18,12 +18,8 @@
 .page
   &--questoes
     background-image: url('~assets/img/bg3.png')
-    background-repeat: no-repeat
-    background-size: cover
-    padding: 2rem 5rem
-    position: relative
 
-    &__container
+    &--container
       height: inherit
       display: flex
       justify-content: center
@@ -40,7 +36,7 @@
         animation-fill-mode: forwards
         animation-iteration-count: infinite
 
-    &__wrapper
+    &--wrapper
       width: 800px
       background-color: #fff
       color: $color-purple
@@ -95,17 +91,11 @@ export default {
   computed: {
     ...mapGetters({
       questionsList: 'getQuestionsList',
-      currentQuestion: 'getCurrentQuestion'
+      currentQuestion: 'getCurrentQuestion',
+      checkLastQuestion: 'checkLastQuestion'
     }),
     totalQuestions () {
       return this.questionsList.length;
-    }
-  },
-  watch: {
-    totalQuestions (val) {
-      if (val <= 0) {
-        this.$router.push('/resultado');
-      }
     }
   },
   asyncData ({ store }) {
@@ -120,8 +110,13 @@ export default {
     };
   },
   methods: {
-    ...mapActions(['updateCurrentQuestion']),
-    updateQuestionID () {
+    ...mapActions(['updateCurrentQuestion', 'setQuizFinished']),
+    nextQuestion () {
+      if (this.checkLastQuestion) {
+        this.setQuizFinished(true);
+        this.$router.push('/resultado');
+        return;
+      }
       const min = 1;
       const max = Math.floor(this.totalQuestions);
       const questionIndex = Math.floor(Math.random() * (max - min + 1) + min);

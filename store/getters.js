@@ -20,6 +20,9 @@ const Getters = {
   },
   getQuizFinished (state) {
     return state.quizFinished;
+  },
+  checkLastQuestion (state) {
+    return state.questionsList.length < 1;
   }
 };
 
