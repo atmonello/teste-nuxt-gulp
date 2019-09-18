@@ -3,8 +3,8 @@
     <img class="score--wrapper--image" src="~assets/img/arte_indicadores.png" alt="">
     <div class="score--wrapper--list">
       <ul>
-        <indicator :score-title="'Satisfação do Cliente'" :score-value="!isVertical ? 33 : 50" />
-        <indicator :score-title="'Fidelização'" :score-value="!isVertical ? 50 : 50" />
+        <indicator :score-title="'Satisfação do Cliente'" :score-value="!isVertical ? satisfaction : 50" />
+        <indicator :score-title="'Fidelização'" :score-value="!isVertical ? loyalty : 50" />
       </ul>
     </div>
   </div>
@@ -45,6 +45,7 @@
 </style>
 
 <script>
+import { mapGetters } from 'vuex';
 import Indicator from './indicator';
 
 export default {
@@ -56,6 +57,12 @@ export default {
       required: false,
       type: Boolean
     }
+  },
+  computed: {
+    ...mapGetters({
+      loyalty: 'getScaledLoyalty',
+      satisfaction: 'getScaledSatisfaction'
+    })
   }
 };
 </script>

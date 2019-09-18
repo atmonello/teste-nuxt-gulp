@@ -1,6 +1,10 @@
 const State = () => {
   return {
-    quizStart: false
+    quizStart: false,
+    score: {
+      loyalty: 0,
+      satisfaction: 0
+    }
   };
 };
 
