@@ -16,5 +16,11 @@ export const getters = {
 };
 
 export const actions = {
-  ...Actions
+  ...Actions,
+  async nuxtServerInit ({ dispatch }, { $axios }) {
+    await $axios.get('/questions.json')
+      .then((response) => {
+        dispatch('setQuestionsList', response.data);
+      });
+  }
 };

@@ -8,7 +8,7 @@
           <p>Antes de resolver cada situação, reflita como suas escolhas podem influenciar os indicadores.</p>
         </article>
         <score :is-vertical="true" />
-        <button>
+        <button @click="startQuestions">
           CONTINUAR
         </button>
       </section>
@@ -90,6 +90,11 @@ export default {
   },
   components: {
     Score
+  },
+  methods: {
+    startQuestions () {
+      this.$router.push('/questoes');
+    }
   }
 };
 </script>
