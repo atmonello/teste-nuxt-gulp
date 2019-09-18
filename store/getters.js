@@ -23,6 +23,9 @@ const Getters = {
   },
   checkLastQuestion (state) {
     return state.questionsList.length < 1;
+  },
+  getSelectedAlternativeStatus (state) {
+    return state.hasSelectedAlternative;
   }
 };
 

@@ -19,6 +19,9 @@ const Mutations = {
   },
   setQuizFinished (state, data) {
     state.quizFinished = data;
+  },
+  toggleSelectedAlternative (state, data) {
+    state.hasSelectedAlternative = data;
   }
 };
 

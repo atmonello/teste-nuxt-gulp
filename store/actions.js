@@ -17,6 +17,9 @@ const Actions = {
   },
   setQuizFinished ({ commit }, data) {
     commit('setQuizFinished', data);
+  },
+  toggleSelectedAlternative ({ commit }, data) {
+    commit('toggleSelectedAlternative', data);
   }
 };
 

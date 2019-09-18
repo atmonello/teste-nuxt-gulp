@@ -5,7 +5,7 @@
         <article>
           <question :question="currentQuestion" />
         </article>
-        <button @click="nextQuestion">
+        <button :class="{'button__disabled': !checkSelected }" @click="nextQuestion">
           CONFIRMAR
         </button>
       </section>
@@ -30,11 +30,6 @@
         z-index: 0
         width: 750px
         top: 150px
-        animation-name: rotate-img
-        animation-duration: 120s
-        animation-timing-function: linear
-        animation-fill-mode: forwards
-        animation-iteration-count: infinite
 
     &--wrapper
       width: 800px
@@ -73,12 +68,6 @@
         right: 0
         margin: auto
         width: 160px
-
-@keyframes rotate-img
-  0%
-    transform: rotateZ(0deg)
-  100%
-    transform: rotateZ(360deg)
 </style>
 
 <script>
@@ -92,7 +81,8 @@ export default {
     ...mapGetters({
       questionsList: 'getQuestionsList',
       currentQuestion: 'getCurrentQuestion',
-      checkLastQuestion: 'checkLastQuestion'
+      checkLastQuestion: 'checkLastQuestion',
+      checkSelected: 'getSelectedAlternativeStatus'
     }),
     totalQuestions () {
       return this.questionsList.length;
@@ -110,7 +100,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(['updateCurrentQuestion', 'setQuizFinished']),
+    ...mapActions(['updateCurrentQuestion', 'setQuizFinished', 'toggleSelectedAlternative']),
     nextQuestion () {
       if (this.checkLastQuestion) {
         this.setQuizFinished(true);
@@ -121,6 +111,7 @@ export default {
       const max = Math.floor(this.totalQuestions);
       const questionIndex = Math.floor(Math.random() * (max - min + 1) + min);
       this.updateCurrentQuestion(questionIndex - 1);
+      this.toggleSelectedAlternative(false);
       this.$nuxt.$emit('resetQuestion');
     }
   },

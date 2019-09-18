@@ -4,7 +4,7 @@
       <strong>Questão {{ question.id }}: </strong>{{ question.text }}
     </p>
     <ol class="question--wrapper--alternatives">
-      <li v-for="(alt, index) in question.alternatives" :key="index" :class="{selected: index === selectedAlternative, inactive: selectedAlternative !== null}" @click="selectAlternative($event, index, alt)">
+      <li v-for="(alt, index) in question.alternatives" :key="index" :class="{selected: index === selectedAlternative, inactive: getSelectedAlternativeStatus }" @click="selectAlternative($event, index, alt)">
         {{ alt.text }}
       </li>
     </ol>
@@ -53,7 +53,7 @@
 </style>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 export default {
   props: {
     question: {
@@ -66,13 +66,16 @@ export default {
       selectedAlternative: null
     };
   },
+  computed: {
+    ...mapGetters(['getSelectedAlternativeStatus'])
+  },
   created () {
     this.$nuxt.$on('resetQuestion', () => {
       this.selectedAlternative = null;
     });
   },
   methods: {
-    ...mapActions(['updateLoyalty', 'updateSatisfaction']),
+    ...mapActions(['updateLoyalty', 'updateSatisfaction', 'toggleSelectedAlternative']),
     selectAlternative (evt, index, option) {
       this.selectedAlternative = index;
 
@@ -80,6 +83,7 @@ export default {
 
       this.updateLoyalty(loyalty);
       this.updateSatisfaction(satisfaction);
+      this.toggleSelectedAlternative(true);
     }
   }
 };

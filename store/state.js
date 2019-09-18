@@ -4,6 +4,7 @@ const State = () => {
     questionsList: [],
     currentQuestion: {},
     quizFinished: false,
+    hasSelectedAlternative: false,
     score: {
       loyalty: 0,
       satisfaction: 0
