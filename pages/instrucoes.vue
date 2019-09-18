@@ -2,12 +2,19 @@
   <div class="page page--instrucoes">
     <div class="page--instrucoes__container">
       <section class="page--instrucoes__wrapper">
-        <h1>Game Quiz</h1>
-        <p>Seja bem-vindo(a)! A partir de agora, você terá a oportunidade de colocar em prática tudo o que já aprendeu. Para isso, será necessário superar alguns desafios, tomando a <strong>melhor decisão para você, para o cliente e para o negócio.</strong> Está preparado?</p>
+        <article>
+          <p>Ao lado, estão os três indicadores do <em>game</em>. Quando você tomar suas decisões, eles poderão aumentar ou diminuir. Por isso, acompanhe-os para saber sua evolução no jogo.</p>
+          <p>Você iniciará o <em>game</em> com os indicadores zerados. No decorrer do jogo, eles serão impactados por todas as suas decisões. Então, fique atento!</p>
+          <p>Antes de resolver cada situação, reflita como suas escolhas podem influenciar os indicadores.</p>
+        </article>
+        <score :is-vertical="true" />
         <button>
           CONTINUAR
         </button>
       </section>
+      <div class="page--instrucoes__score">
+        <score />
+      </div>
     </div>
   </div>
 </template>
@@ -25,13 +32,16 @@
       flex-direction: column
       justify-content: center
       color: #fff
-      width: 600px
+      width: 800px
 
     &__wrapper
       background-color: $color-red
       padding: 32px 20px
       border-radius: 16px
       position: relative
+      display: flex
+      align-items: center
+      z-index: 0
 
       &::after
         position: absolute
@@ -42,6 +52,7 @@
         left: -8px
         border: 1px solid $color-red
         border-radius: 16px
+        z-index: -1
 
       button
         background-image: $gradient-button
@@ -58,16 +69,27 @@
         left: 0
         right: 0
         margin: auto
+        width: 160px
 
         &:hover
           padding: 8px 20px
-
+    &__score
+      position: fixed
+      top: 0
+      right: 0
+      display: block
+      z-index: 2
+      padding: 24px
 </style>
 
 <script>
+import Score from '../components/score';
 export default {
   head: {
     title: 'Instruções'
+  },
+  components: {
+    Score
   }
 };
 </script>
