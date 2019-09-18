@@ -1,10 +1,11 @@
 <template>
   <div class="question question--wrapper">
+    <code>{{ question }}</code>
     <p class="question--wrapper--text">
       <strong>Questão {{ question.id }}: </strong>{{ question.text }}
     </p>
     <ol class="question--wrapper--alternatives">
-      <li v-for="(alt, index) in question.alternatives" :key="index" :class="{selected: index === selectedAlternative, inactive: selectedAlternative !== null}" @click="selectAlternative($event, index)">
+      <li v-for="(alt, index) in question.alternatives" :key="index" :class="{selected: index === selectedAlternative, inactive: selectedAlternative !== null}" @click="selectAlternative($event, index, alt)">
         {{ alt.text }}
       </li>
     </ol>
@@ -53,6 +54,7 @@
 </style>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
   props: {
     question: {
@@ -66,9 +68,15 @@ export default {
     };
   },
   methods: {
-    selectAlternative (evt, index) {
-      console.log('SELECT ALTERNATIVE', { evt, index });
+    ...mapActions(['updateLoyalty', 'updateSatisfaction']),
+    selectAlternative (evt, index, option) {
+      console.log('SELECT ALTERNATIVE', { evt, index, option });
       this.selectedAlternative = index;
+
+      const { loyalty, satisfaction } = option;
+
+      this.updateLoyalty(loyalty);
+      this.updateSatisfaction(satisfaction);
     }
   }
 };
