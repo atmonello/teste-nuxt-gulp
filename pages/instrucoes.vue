@@ -12,9 +12,6 @@
           CONTINUAR
         </button>
       </section>
-      <div class="page--instrucoes__score">
-        <score />
-      </div>
     </div>
   </div>
 </template>
@@ -70,14 +67,6 @@
         right: 0
         margin: auto
         width: 160px
-
-    &__score
-      position: fixed
-      top: 0
-      right: 0
-      display: block
-      z-index: 2
-      padding: 24px
 </style>
 
 <script>

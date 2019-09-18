@@ -1,6 +1,5 @@
 <template>
   <div class="question question--wrapper">
-    <code>{{ question }}</code>
     <p class="question--wrapper--text">
       <strong>Questão {{ question.id }}: </strong>{{ question.text }}
     </p>
