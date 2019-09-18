@@ -11,10 +11,10 @@ export const mutations = {
   ...Mutations
 };
 
-export const actions = {
-  ...Actions
-};
-
 export const getters = {
   ...Getters
+};
+
+export const actions = {
+  ...Actions
 };
