@@ -14,6 +14,9 @@ const Getters = {
   },
   getQuestionsList (state) {
     return state.questionsList;
+  },
+  getCurrentQuestion (state) {
+    return state.currentQuestion;
   }
 };
 

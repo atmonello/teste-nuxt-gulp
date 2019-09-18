@@ -66,6 +66,11 @@ export default {
       selectedAlternative: null
     };
   },
+  created () {
+    this.$nuxt.$on('resetQuestion', () => {
+      this.selectedAlternative = null;
+    });
+  },
   methods: {
     ...mapActions(['updateLoyalty', 'updateSatisfaction']),
     selectAlternative (evt, index, option) {

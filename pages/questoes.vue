@@ -5,7 +5,9 @@
         <article>
           <question :question="currentQuestion" />
         </article>
-        <button>CONFIRMAR</button>
+        <button @click="updateQuestionID">
+          CONFIRMAR
+        </button>
       </section>
       <img src="~assets/img/arte_quiz.png" alt="">
     </div>
@@ -82,7 +84,7 @@
 </style>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import Question from '../components/question';
 export default {
   components: {
@@ -90,20 +92,40 @@ export default {
   },
   computed: {
     ...mapGetters({
-      questionsList: 'getQuestionsList'
+      questionsList: 'getQuestionsList',
+      currentQuestion: 'getCurrentQuestion'
     }),
-    currentQuestion () {
-      return this.questionsList.filter(question => question.id === this.questionID)[0];
+    totalQuestions () {
+      return this.questionsList.length;
+    }
+  },
+  watch: {
+    totalQuestions (val) {
+      if (val <= 0) {
+        this.$router.push('/');
+      }
     }
   },
   asyncData ({ store }) {
     const min = 1;
     const max = Math.floor(store.getters.getQuestionsList.length);
-    const questionID = Math.floor(Math.random() * (max - min + 1) + min);
+    const questionIndex = Math.floor(Math.random() * (max - min + 1) + min);
+
+    store.dispatch('updateCurrentQuestion', questionIndex);
 
     return {
-      questionID
+      questionIndex
     };
+  },
+  methods: {
+    ...mapActions(['updateCurrentQuestion']),
+    updateQuestionID () {
+      const min = 1;
+      const max = Math.floor(this.totalQuestions);
+      const questionIndex = Math.floor(Math.random() * (max - min + 1) + min);
+      this.updateCurrentQuestion(questionIndex - 1);
+      this.$nuxt.$emit('resetQuestion');
+    }
   },
   validate ({ store, redirect }) {
     if (!store.getters.getQuizStart) {

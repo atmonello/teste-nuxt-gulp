@@ -10,6 +10,10 @@ const Actions = {
   },
   updateSatisfaction ({ commit }, data) {
     commit('updateSatisfaction', data);
+  },
+  updateCurrentQuestion ({ commit }, data) {
+    commit('updateCurrentQuestion', data);
+    commit('removeQuestionFromList', data);
   }
 };
 

@@ -10,6 +10,12 @@ const Mutations = {
   },
   updateSatisfaction (state, data) {
     state.score.satisfaction += data;
+  },
+  updateCurrentQuestion (state, data) {
+    state.currentQuestion = state.questionsList[data];
+  },
+  removeQuestionFromList (state, data) {
+    state.questionsList.splice(data, 1);
   }
 };
 
