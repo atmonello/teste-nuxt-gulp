@@ -31,7 +31,7 @@
       height: 100%
       background-color: $color-purple
       border-radius: 12px
-      transition: width 0.3s ease
+      transition: width 0.5s ease
 </style>
 
 <script>

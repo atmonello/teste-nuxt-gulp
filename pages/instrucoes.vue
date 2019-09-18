@@ -84,7 +84,6 @@ export default {
     }
   },
   validate ({ store, redirect }) {
-    console.log('validate', store.getters.getQuizStart);
     if (!store.getters.getQuizStart) {
       redirect('/');
     }

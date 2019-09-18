@@ -3,10 +3,14 @@ const Getters = {
     return state.quizStart;
   },
   getScaledSatisfaction (state) {
-    return (state.score.satisfaction / 100) * 100;
+    const scaled = (state.score.satisfaction / 100) * 100;
+    if (scaled > 100) { return 100; }
+    return scaled;
   },
   getScaledLoyalty (state) {
-    return (state.score.loyalty / 100) * 100;
+    const scaled = (state.score.loyalty / 100) * 100;
+    if (scaled > 100) { return 100; }
+    return scaled;
   },
   getQuestionsList (state) {
     return state.questionsList;
