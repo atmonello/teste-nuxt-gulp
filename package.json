@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "compress": "gulp compress-images",
-    "dev": "npm run compress && nuxt",
+    "dev": "nuxt",
     "build": "npm run compress && nuxt build",
     "start": "nuxt start",
     "generate": "npm run compress && nuxt generate",
