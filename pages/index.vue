@@ -42,16 +42,18 @@
 
 <script>
 import { mapActions } from 'vuex';
+import Questions from '~/static/questions.json';
 
 export default {
-  asyncData ({ store, redirect }) {
-    const isStarted = store.getters.getQuizStart;
-    if (isStarted) {
-      redirect('/instrucoes');
-    }
-  },
   head: {
     title: 'André Monello'
+  },
+  async asyncData ({ store }) {
+    const shuffle = Questions
+      .map(a => ({ sort: Math.random(), value: a }))
+      .sort((a, b) => a.sort - b.sort)
+      .map(a => a.value);
+    await store.dispatch('setQuestionsList', shuffle.slice(0, 10));
   },
   methods: {
     ...mapActions({

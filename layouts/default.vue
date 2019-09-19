@@ -22,6 +22,7 @@ main
 <script>
 import { mapGetters } from 'vuex';
 import Score from '../components/score';
+
 export default {
   components: {
     Score
