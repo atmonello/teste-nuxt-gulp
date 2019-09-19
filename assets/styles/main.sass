@@ -1,8 +1,15 @@
 @import './fonts'
 
 body
-  font-family: 'Gilroy'
   overflow: hidden
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+  p, h1, h2, h3, h4, h5, h6,
+  button, input, textarea,
+  span, strong, em, li
+    font-family: 'Gilroy'
 
   .page
     width: 100vw
@@ -17,6 +24,7 @@ body
 
     button
       transition: all 0.1s ease-out
+      cursor: pointer
 
       &:hover
         transform: scale(1.025)

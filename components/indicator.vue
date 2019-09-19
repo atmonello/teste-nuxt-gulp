@@ -14,6 +14,7 @@
   align-items: center
   flex-wrap: nowrap
   margin: 5px 0
+  color: #fff
 
   &--title
     text-align: center
