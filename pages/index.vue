@@ -13,7 +13,7 @@
 <style lang="sass" scoped>
 .page
   &--intro
-    background-image: url('~assets/img/bg1.png')
+    background-image: url('~assets/img/bg1.webp')
 
     &--container
       height: inherit

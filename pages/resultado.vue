@@ -3,7 +3,7 @@
     <div class="page--resultado--container">
       <section class="page--resultado--wrapper">
         <div class="page--resultado--title">
-          <img src="~assets/img/arte_indicadores.png" alt="Logo">
+          <img src="~assets/img/arte_indicadores.webp" alt="Logo">
           <h2>Veja sua <em>performance</em> em cada indicador:</h2>
         </div>
         <div class="page--resultado--score">
@@ -17,7 +17,7 @@
 <style lang="sass" scoped>
 .page
   &--resultado
-    background-image: url('~assets/img/bg4.png')
+    background-image: url('~assets/img/bg4.webp')
     display: flex
     align-items: center
     justify-content: center

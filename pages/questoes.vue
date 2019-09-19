@@ -9,7 +9,7 @@
           CONFIRMAR
         </button>
       </section>
-      <img src="~assets/img/arte_quiz.png" alt="Logo">
+      <img src="~assets/img/arte_quiz.webp" alt="Logo">
     </div>
   </div>
 </template>
@@ -17,7 +17,7 @@
 <style lang="sass" scoped>
 .page
   &--questoes
-    background-image: url('~assets/img/bg3.png')
+    background-image: url('~assets/img/bg3.webp')
 
     &--container
       height: inherit

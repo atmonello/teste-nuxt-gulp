@@ -1,6 +1,6 @@
 <template>
   <div class="score score--wrapper" :class="{'score--wrapper__vertical': isVertical}">
-    <img v-if="!finalResult" class="score--wrapper--image" src="~assets/img/arte_indicadores.png" alt="Logo">
+    <img v-if="!finalResult" class="score--wrapper--image" src="~assets/img/arte_indicadores.webp" alt="Logo">
     <div class="score--wrapper--list" :class="{'score--wrapper--list__final': finalResult}">
       <ul>
         <indicator :score-title="'Satisfação do Cliente'" :score-value="!isVertical ? satisfaction : 50" />
