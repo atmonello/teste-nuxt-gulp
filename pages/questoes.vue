@@ -74,6 +74,9 @@
 import { mapGetters, mapActions } from 'vuex';
 import Question from '../components/question';
 export default {
+  head: {
+    title: 'Questões - André Monello'
+  },
   components: {
     Question
   },

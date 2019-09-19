@@ -71,7 +71,7 @@
 import Score from '../components/score';
 export default {
   head: {
-    title: 'Instruções'
+    title: 'Instruções - André Monello'
   },
   components: {
     Score

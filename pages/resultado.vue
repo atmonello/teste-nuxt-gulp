@@ -74,6 +74,9 @@
 import Score from '../components/score';
 
 export default {
+  head: {
+    title: 'Resultado - André Monello'
+  },
   validate ({ store, redirect }) {
     if (!store.getters.getQuizFinished) {
       redirect('/');

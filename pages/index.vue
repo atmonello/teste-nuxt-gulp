@@ -46,7 +46,7 @@ import Questions from '~/static/questions.json';
 
 export default {
   head: {
-    title: 'André Monello'
+    title: 'Quiz - André Monello'
   },
   async asyncData ({ store }) {
     const shuffle = Questions
