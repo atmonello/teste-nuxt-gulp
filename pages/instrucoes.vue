@@ -1,5 +1,5 @@
 <template>
-  <div class="page page--instrucoes">
+  <div class="page page--instrucoes" :style="{ backgroundImage: 'url(' + this.$imageURL('bg2') + ')'}">
     <div class="page--instrucoes--container">
       <section class="page--instrucoes--wrapper">
         <article>
@@ -19,8 +19,6 @@
 <style lang="sass" scoped>
 .page
   &--instrucoes
-    background-image: url('~assets/img/bg2.webp')
-
     &--container
       height: inherit
       display: flex

@@ -1,5 +1,5 @@
 <template>
-  <div class="page page--questoes">
+  <div class="page page--questoes" :style="{ backgroundImage: 'url(' + this.$imageURL('bg3') + ')'}">
     <div class="page--questoes--container">
       <section class="page--questoes--wrapper">
         <article>
@@ -9,7 +9,7 @@
           CONFIRMAR
         </button>
       </section>
-      <img src="~assets/img/arte_quiz.webp" alt="Logo">
+      <img :src="this.$imageURL('arte_quiz')" alt="Logo">
     </div>
   </div>
 </template>
@@ -17,8 +17,6 @@
 <style lang="sass" scoped>
 .page
   &--questoes
-    background-image: url('~assets/img/bg3.webp')
-
     &--container
       height: inherit
       display: flex

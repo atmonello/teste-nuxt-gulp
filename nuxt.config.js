@@ -1,6 +1,12 @@
 
+require('dotenv-flow').config();
+
 export default {
   mode: 'universal',
+  env: {
+    imagePath: process.env.IMAGE_PATH,
+    imageExtension: process.env.IMAGE_EXTENSION
+  },
   /*
   ** Headers of the page
   */
@@ -29,6 +35,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/imageURL.js'
   ],
   /*
   ** Nuxt.js dev-modules

@@ -1,5 +1,5 @@
 <template>
-  <div class="page page--intro">
+  <div class="page page--intro" :style="{ backgroundImage: 'url(' + this.$imageURL('bg1') + ')'}">
     <div class="page--intro--container">
       <h1>Game Quiz</h1>
       <p>Seja bem-vindo(a)! A partir de agora, você terá a oportunidade de colocar em prática tudo o que já aprendeu. Para isso, será necessário superar alguns desafios, tomando a <strong>melhor decisão para você, para o cliente e para o negócio.</strong> Está preparado?</p>
@@ -13,7 +13,6 @@
 <style lang="sass" scoped>
 .page
   &--intro
-    background-image: url('~assets/img/bg1.webp')
 
     &--container
       height: inherit
