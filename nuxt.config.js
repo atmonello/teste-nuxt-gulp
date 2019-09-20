@@ -4,8 +4,7 @@ require('dotenv-flow').config();
 export default {
   mode: 'universal',
   env: {
-    imagePath: process.env.IMAGE_PATH,
-    imageExtension: process.env.IMAGE_EXTENSION
+    imagePath: process.env.IMAGE_PATH
   },
   /*
   ** Headers of the page
