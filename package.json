@@ -10,7 +10,7 @@
     "build": "cross-env NODE_ENV=production npm run compress && nuxt build",
     "start": "nuxt start",
     "generate": "cross-env NODE_ENV=production npm run compress && nuxt generate",
-    "generate:gh-pages": "cross-env NODE_ENV=production && cross-env DEPLOY_ENV=GH_PAGES && npm run compress && nuxt generate",
+    "generate:gh-pages": "cross-env NODE_ENV=production DEPLOY_ENV=gh_pages npm run compress && nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
