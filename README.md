@@ -4,14 +4,18 @@ Teste de implementação com [Nuxt.js](https://nuxtjs.org/) e [Gulp](https://gul
 
 ## Desenvolvimento
 
-Para desenvolvimento, o recomendado é colocar as imagens originais na pasta `source/img` e rodar o comando `npm run compress` para aplicar compressão nas mesmas. Depois disso, basta utilizar os arquivos .webp normalmente no código.
-
 O servidor de desenvolvimento é executado com a task `npm run dev`, que executa um servidor para servir e recompilar os arquivos conforme forem modificados. O acesso é feito pelo endereço `localhost:3000`.
 
 ## Produção
 
 Para fechar o pacote para produção, foi usado o comando `npm run generate` (que executa a task do Gulp para compressão de imagens), gerando os arquivos na pasta `dist/`.
 
-A hospedagem foi feita utilizando o [Surge](https://surge.sh/). Instalado o pacote do surge, com `npm install surge --global`, basta rodar o comando `surge dist/` dentro da pasta do projeto e definir o endereço de hospedagem - funcionando tanto HTTP quanto HTTPS.
+A hospedagem foi feita utilizando o [GitHub Pages](https://pages.github.com/). Instalado o pacote [push-dir](https://www.npmjs.com/package/push-dir), com `npm install push-dir --save`, basta rodar o comando `npm run gh-pages` dentro da pasta do projeto.
 
-[Clique aqui para acessar.](http://atmonello-quiz.surge.sh)
+## Compressão de imagens
+
+As imagens são armazenadas na pasta `static`. Durante o desenvolvimento, pode-se usar as imagens não comprimidas.
+Os comandos de build para produção executam o script do Gulp, que utiliza os pacotes **gulp-imagemin** e **gulp-imageminwebp** para comprimir as imagens PNG.
+
+
+[Clique aqui para acessar.](https://atmonello.github.io/teste-nuxt-gulp/)
