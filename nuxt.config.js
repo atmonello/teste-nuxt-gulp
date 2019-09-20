@@ -1,6 +1,12 @@
 
 require('dotenv-flow').config();
 
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/teste-nuxt-gulp/'
+  }
+} : {};
+
 export default {
   mode: 'universal',
   env: {
@@ -65,6 +71,7 @@ export default {
   /*
   ** Build configuration
   */
+  ...routerBase,
   build: {
     /*
     ** You can extend webpack config here
