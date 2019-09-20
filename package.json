@@ -1,7 +1,7 @@
 {
-  "name": "teste_pleno",
+  "name": "atmonello-quiz",
   "version": "1.0.0",
-  "description": "Teste - Frontend Pleno - AfferoLab",
+  "description": "Teste Nuxt.js + Gulp.js",
   "author": "Andre Monello",
   "private": true,
   "scripts": {
