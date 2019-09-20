@@ -1,16 +1,33 @@
 const gulp = require('gulp');
-const compressImages = require('compress-images');
+const imageMin = require('gulp-imagemin');
+// const imageminPngquant = require('imagemin-pngquant');
+// const imageminZopfli = require('imagemin-zopfli');
+const imageminWebp = require('imagemin-webp');
+// const cache = require('gulp-cache');
 
-// gulp compressImages
-gulp.task('compress-images', function () {
-  return new Promise((resolve) => {
-    // [jpg+gif+png+svg] ---to---> [jpg(webp)+gif(gifsicle)+png(webp)+svg(svgo)]
-    compressImages('static/img/*.{jpg,JPG,jpeg,JPEG,gif,png,svg}', 'static/img/min/', { compress_force: false, statistic: true, autoupdate: true }, false,
-      { jpg: { engine: 'webp', command: false } },
-      { png: { engine: 'webp', command: false } },
-      { svg: { engine: 'svgo', command: false } },
-      { gif: { engine: 'gifsicle', command: ['--colors', '64', '--use-col=web'] } }, function () {
-        resolve(true);
-      });
-  });
+// gulp.task('png', () => {
+//   return gulp.src('./static/img/*')
+//     .pipe(cache(imageMin([
+//       imageminPngquant({
+//         speed: 1,
+//         quality: [0.5, 0.75]
+//       }),
+//       imageminZopfli({
+//         more: true,
+//         iterations: 75
+//       })
+//     ])))
+//     .pipe(gulp.dest('./static/img/min'));
+// });
+
+gulp.task('webp', () => {
+  return gulp.src('./static/img/*')
+    .pipe(imageMin([
+      imageminWebp({
+        quality: 70
+      })
+    ]))
+    .pipe(gulp.dest('./static/img/min'));
 });
+
+// gulp.task('compress-images', gulp.series('png', 'webp'));
