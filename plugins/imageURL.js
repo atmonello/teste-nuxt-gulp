@@ -1,8 +1,9 @@
-import Vue from 'vue';
+import Vue from "vue";
 
-const imageExtension = 'png';
+const imageExtension = "png";
 
 // if (process.browser) {
-//   imageExtension = window.navigator.userAgent.match(/safari/gi) ? 'png' : 'webp';
+//   imageExtension = window.navigator.userAgent.match(/safari/gi) ? "png" : "webp";
 // }
-Vue.prototype.$imageURL = fileName => `${process.env.imagePath}/${fileName}.${imageExtension}`;
+Vue.prototype.$imageURL = fileName =>
+  `${process.env.imagePath}/${fileName}.${imageExtension}`;

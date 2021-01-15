@@ -1,10 +1,27 @@
 <template>
-  <div class="score score--wrapper" :class="{'score--wrapper__vertical': isVertical}">
-    <img v-if="!finalResult" class="score--wrapper--image" :src="this.$imageURL('arte_indicadores')" alt="Logo">
-    <div class="score--wrapper--list" :class="{'score--wrapper--list__final': finalResult}">
+  <div
+    :class="{ 'score--wrapper__vertical': isVertical }"
+    class="score score--wrapper"
+  >
+    <img
+      v-if="!finalResult"
+      :src="this.$imageURL('arte_indicadores')"
+      class="score--wrapper--image"
+      alt="Logo"
+    />
+    <div
+      :class="{ 'score--wrapper--list__final': finalResult }"
+      class="score--wrapper--list"
+    >
       <ul>
-        <indicator :score-title="'Satisfação do Cliente'" :score-value="!isVertical ? satisfaction : 50" />
-        <indicator :score-title="'Fidelização'" :score-value="!isVertical ? loyalty : 50" />
+        <Indicator
+          :score-title="'Satisfação do Cliente'"
+          :score-value="!isVertical ? satisfaction : 50"
+        />
+        <Indicator
+          :score-title="'Fidelização'"
+          :score-value="!isVertical ? loyalty : 50"
+        />
       </ul>
     </div>
   </div>
@@ -47,8 +64,8 @@
 </style>
 
 <script>
-import { mapGetters } from 'vuex';
-import Indicator from './indicator';
+import { mapGetters } from "vuex";
+import Indicator from "./indicator";
 
 export default {
   components: {
@@ -66,8 +83,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      loyalty: 'getScaledLoyalty',
-      satisfaction: 'getScaledSatisfaction'
+      loyalty: "getScaledLoyalty",
+      satisfaction: "getScaledSatisfaction"
     })
   }
 };

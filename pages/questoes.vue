@@ -1,15 +1,21 @@
 <template>
-  <div class="page page--questoes" :style="{ backgroundImage: 'url(' + this.$imageURL('bg3') + ')'}">
+  <div
+    :style="{ backgroundImage: 'url(' + this.$imageURL('bg3') + ')' }"
+    class="page page--questoes"
+  >
     <div class="page--questoes--container">
       <section class="page--questoes--wrapper">
         <article>
-          <question :question="currentQuestion" />
+          <Question :question="currentQuestion" />
         </article>
-        <button :class="{'button__disabled': !checkSelected }" @click="nextQuestion">
+        <button
+          :class="{ button__disabled: !checkSelected }"
+          @click="nextQuestion"
+        >
           CONFIRMAR
         </button>
       </section>
-      <img :src="this.$imageURL('arte_quiz')" alt="Logo">
+      <img :src="this.$imageURL('arte_quiz')" alt="Logo" />
     </div>
   </div>
 </template>
@@ -69,43 +75,47 @@
 </style>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
-import Question from '../components/question';
+import { mapGetters, mapActions } from "vuex";
+import Question from "../components/question";
 export default {
-  head: {
-    title: 'Questões - André Monello'
-  },
   components: {
     Question
   },
+  head: {
+    title: "Questões - André Monello"
+  },
   computed: {
     ...mapGetters({
-      questionsList: 'getQuestionsList',
-      currentQuestion: 'getCurrentQuestion',
-      checkLastQuestion: 'checkLastQuestion',
-      checkSelected: 'getSelectedAlternativeStatus'
+      questionsList: "getQuestionsList",
+      currentQuestion: "getCurrentQuestion",
+      checkLastQuestion: "checkLastQuestion",
+      checkSelected: "getSelectedAlternativeStatus"
     }),
-    totalQuestions () {
+    totalQuestions() {
       return this.questionsList.length;
     }
   },
-  asyncData ({ store }) {
+  asyncData({ store }) {
     const min = 1;
     const max = Math.floor(store.getters.getQuestionsList.length);
     const questionIndex = Math.floor(Math.random() * (max - min + 1) + min);
 
-    store.dispatch('updateCurrentQuestion', questionIndex);
+    store.dispatch("updateCurrentQuestion", questionIndex);
 
     return {
       questionIndex
     };
   },
   methods: {
-    ...mapActions(['updateCurrentQuestion', 'setQuizFinished', 'toggleSelectedAlternative']),
-    nextQuestion () {
+    ...mapActions([
+      "updateCurrentQuestion",
+      "setQuizFinished",
+      "toggleSelectedAlternative"
+    ]),
+    nextQuestion() {
       if (this.checkLastQuestion) {
         this.setQuizFinished(true);
-        this.$router.push('/resultado');
+        this.$router.push("/resultado");
         return;
       }
       const min = 1;
@@ -113,12 +123,12 @@ export default {
       const questionIndex = Math.floor(Math.random() * (max - min + 1) + min);
       this.updateCurrentQuestion(questionIndex - 1);
       this.toggleSelectedAlternative(false);
-      this.$nuxt.$emit('resetQuestion');
+      this.$nuxt.$emit("resetQuestion");
     }
   },
-  validate ({ store, redirect }) {
+  validate({ store, redirect }) {
     if (!store.getters.getQuizStart) {
-      redirect('/');
+      redirect("/");
     }
     return true;
   }

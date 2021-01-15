@@ -1,7 +1,7 @@
-import Mutations from './mutations';
-import Actions from './actions';
-import Getters from './getters';
-import State from './state';
+import Mutations from "./mutations";
+import Actions from "./actions";
+import Getters from "./getters";
+import State from "./state";
 
 export const state = () => ({
   ...State

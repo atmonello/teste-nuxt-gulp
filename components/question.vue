@@ -4,7 +4,15 @@
       <strong>Questão {{ question.id }}: </strong>{{ question.text }}
     </p>
     <ol class="question--wrapper--alternatives">
-      <li v-for="(alt, index) in question.alternatives" :key="index" :class="{selected: index === selectedAlternative, inactive: getSelectedAlternativeStatus }" @click="selectAlternative($event, index, alt)">
+      <li
+        v-for="(alt, index) in question.alternatives"
+        :key="index"
+        :class="{
+          selected: index === selectedAlternative,
+          inactive: getSelectedAlternativeStatus
+        }"
+        @click="selectAlternative($event, index, alt)"
+      >
         {{ alt.text }}
       </li>
     </ol>
@@ -53,7 +61,7 @@
 </style>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions, mapGetters } from "vuex";
 export default {
   props: {
     question: {
@@ -61,22 +69,26 @@ export default {
       type: Object
     }
   },
-  data () {
+  data() {
     return {
       selectedAlternative: null
     };
   },
   computed: {
-    ...mapGetters(['getSelectedAlternativeStatus'])
+    ...mapGetters(["getSelectedAlternativeStatus"])
   },
-  created () {
-    this.$nuxt.$on('resetQuestion', () => {
+  created() {
+    this.$nuxt.$on("resetQuestion", () => {
       this.selectedAlternative = null;
     });
   },
   methods: {
-    ...mapActions(['updateLoyalty', 'updateSatisfaction', 'toggleSelectedAlternative']),
-    selectAlternative (evt, index, option) {
+    ...mapActions([
+      "updateLoyalty",
+      "updateSatisfaction",
+      "toggleSelectedAlternative"
+    ]),
+    selectAlternative(evt, index, option) {
       this.selectedAlternative = index;
 
       const { loyalty, satisfaction } = option;

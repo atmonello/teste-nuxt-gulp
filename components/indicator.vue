@@ -1,8 +1,12 @@
 <template>
   <li class="score--indicator">
-    <span class="score--indicator--title" :class="{'score--indicator--title__final': getQuizFinished}">{{ scoreTitle }}</span>
+    <span
+      :class="{ 'score--indicator--title__final': getQuizFinished }"
+      class="score--indicator--title"
+      >{{ scoreTitle }}</span
+    >
     <span class="score--indicator--bar">
-      <span class="fill" :style="{ width: scoreValue + '%'}" />
+      <span :style="{ width: scoreValue + '%' }" class="fill" />
     </span>
   </li>
 </template>
@@ -42,7 +46,7 @@
 </style>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters } from "vuex";
 export default {
   props: {
     scoreTitle: {
@@ -55,7 +59,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getQuizFinished'])
+    ...mapGetters(["getQuizFinished"])
   }
 };
 </script>

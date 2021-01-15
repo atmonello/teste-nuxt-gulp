@@ -1,13 +1,27 @@
 <template>
-  <div class="page page--instrucoes" :style="{ backgroundImage: 'url(' + this.$imageURL('bg2') + ')'}">
+  <div
+    :style="{ backgroundImage: 'url(' + this.$imageURL('bg2') + ')' }"
+    class="page page--instrucoes"
+  >
     <div class="page--instrucoes--container">
       <section class="page--instrucoes--wrapper">
         <article>
-          <p>Ao lado, estão os três indicadores do <em>game</em>. Quando você tomar suas decisões, eles poderão aumentar ou diminuir. Por isso, acompanhe-os para saber sua evolução no jogo.</p>
-          <p>Você iniciará o <em>game</em> com os indicadores zerados. No decorrer do jogo, eles serão impactados por todas as suas decisões. Então, fique atento!</p>
-          <p>Antes de resolver cada situação, reflita como suas escolhas podem influenciar os indicadores.</p>
+          <p>
+            Ao lado, estão os três indicadores do <em>game</em>. Quando você
+            tomar suas decisões, eles poderão aumentar ou diminuir. Por isso,
+            acompanhe-os para saber sua evolução no jogo.
+          </p>
+          <p>
+            Você iniciará o <em>game</em> com os indicadores zerados. No
+            decorrer do jogo, eles serão impactados por todas as suas decisões.
+            Então, fique atento!
+          </p>
+          <p>
+            Antes de resolver cada situação, reflita como suas escolhas podem
+            influenciar os indicadores.
+          </p>
         </article>
-        <score :is-vertical="true" />
+        <Score :is-vertical="true" />
         <button @click="startQuestions">
           CONTINUAR
         </button>
@@ -66,24 +80,24 @@
 </style>
 
 <script>
-import Score from '../components/score';
+import Score from "../components/score";
 export default {
-  head: {
-    title: 'Instruções - André Monello'
-  },
   components: {
     Score
   },
-  methods: {
-    startQuestions () {
-      this.$router.push('/questoes');
-    }
-  },
-  validate ({ store, redirect }) {
+  validate({ store, redirect }) {
     if (!store.getters.getQuizStart) {
-      redirect('/');
+      redirect("/");
     }
     return true;
+  },
+  head: {
+    title: "Instruções - André Monello"
+  },
+  methods: {
+    startQuestions() {
+      this.$router.push("/questoes");
+    }
   }
 };
 </script>

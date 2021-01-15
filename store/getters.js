@@ -1,30 +1,34 @@
 const Getters = {
-  getQuizStart (state) {
+  getQuizStart(state) {
     return state.quizStart;
   },
-  getScaledSatisfaction (state) {
+  getScaledSatisfaction(state) {
     const scaled = (state.score.satisfaction / 100) * 100;
-    if (scaled > 100) { return 100; }
+    if (scaled > 100) {
+      return 100;
+    }
     return scaled;
   },
-  getScaledLoyalty (state) {
+  getScaledLoyalty(state) {
     const scaled = (state.score.loyalty / 100) * 100;
-    if (scaled > 100) { return 100; }
+    if (scaled > 100) {
+      return 100;
+    }
     return scaled;
   },
-  getQuestionsList (state) {
+  getQuestionsList(state) {
     return state.questionsList;
   },
-  getCurrentQuestion (state) {
+  getCurrentQuestion(state) {
     return state.currentQuestion;
   },
-  getQuizFinished (state) {
+  getQuizFinished(state) {
     return state.quizFinished;
   },
-  checkLastQuestion (state) {
+  checkLastQuestion(state) {
     return state.questionsList.length < 1;
   },
-  getSelectedAlternativeStatus (state) {
+  getSelectedAlternativeStatus(state) {
     return state.hasSelectedAlternative;
   }
 };

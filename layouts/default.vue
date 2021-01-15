@@ -2,7 +2,7 @@
   <main>
     <nuxt />
     <aside v-if="getQuizStart && !getQuizFinished" class="main--score">
-      <score />
+      <Score />
     </aside>
   </main>
 </template>
@@ -20,15 +20,15 @@ main
 </style>
 
 <script>
-import { mapGetters } from 'vuex';
-import Score from '../components/score';
+import { mapGetters } from "vuex";
+import Score from "../components/score";
 
 export default {
   components: {
     Score
   },
   computed: {
-    ...mapGetters(['getQuizStart', 'getQuizFinished'])
+    ...mapGetters(["getQuizStart", "getQuizFinished"])
   }
 };
 </script>

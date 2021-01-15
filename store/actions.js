@@ -1,25 +1,25 @@
 const Actions = {
-  setQuizStart ({ commit }, data) {
-    commit('setQuizStart', data);
+  setQuizStart({ commit }, data) {
+    commit("setQuizStart", data);
   },
-  setQuestionsList ({ commit }, data) {
-    commit('setQuestionsList', data);
+  setQuestionsList({ commit }, data) {
+    commit("setQuestionsList", data);
   },
-  updateLoyalty ({ commit }, data) {
-    commit('updateLoyalty', data);
+  updateLoyalty({ commit }, data) {
+    commit("updateLoyalty", data);
   },
-  updateSatisfaction ({ commit }, data) {
-    commit('updateSatisfaction', data);
+  updateSatisfaction({ commit }, data) {
+    commit("updateSatisfaction", data);
   },
-  updateCurrentQuestion ({ commit }, data) {
-    commit('updateCurrentQuestion', data);
-    commit('removeQuestionFromList', data);
+  updateCurrentQuestion({ commit }, data) {
+    commit("updateCurrentQuestion", data);
+    commit("removeQuestionFromList", data);
   },
-  setQuizFinished ({ commit }, data) {
-    commit('setQuizFinished', data);
+  setQuizFinished({ commit }, data) {
+    commit("setQuizFinished", data);
   },
-  toggleSelectedAlternative ({ commit }, data) {
-    commit('toggleSelectedAlternative', data);
+  toggleSelectedAlternative({ commit }, data) {
+    commit("toggleSelectedAlternative", data);
   }
 };
 

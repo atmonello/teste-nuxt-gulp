@@ -1,8 +1,19 @@
 <template>
-  <div class="page page--intro" :style="{ backgroundImage: 'url(' + this.$imageURL('bg1') + ')'}">
+  <div
+    :style="{ backgroundImage: 'url(' + this.$imageURL('bg1') + ')' }"
+    class="page page--intro"
+  >
     <div class="page--intro--container">
       <h1>Game Quiz</h1>
-      <p>Seja bem-vindo(a)! A partir de agora, você terá a oportunidade de colocar em prática tudo o que já aprendeu. Para isso, será necessário superar alguns desafios, tomando a <strong>melhor decisão para você, para o cliente e para o negócio.</strong> Está preparado?</p>
+      <p>
+        Seja bem-vindo(a)! A partir de agora, você terá a oportunidade de
+        colocar em prática tudo o que já aprendeu. Para isso, será necessário
+        superar alguns desafios, tomando a
+        <strong
+          >melhor decisão para você, para o cliente e para o negócio.</strong
+        >
+        Está preparado?
+      </p>
       <button @click="startQuiz">
         Clique aqui para aceitar o desafio!
       </button>
@@ -40,27 +51,26 @@
 </style>
 
 <script>
-import { mapActions } from 'vuex';
-import Questions from '~/static/questions.json';
+import { mapActions } from "vuex";
+import Questions from "~/static/questions.json";
 
 export default {
-  head: {
-    title: 'Quiz - André Monello'
-  },
-  async asyncData ({ store }) {
-    const shuffle = Questions
-      .map(a => ({ sort: Math.random(), value: a }))
+  async asyncData({ store }) {
+    const shuffle = Questions.map(a => ({ sort: Math.random(), value: a }))
       .sort((a, b) => a.sort - b.sort)
       .map(a => a.value);
-    await store.dispatch('setQuestionsList', shuffle.slice(0, 10));
+    await store.dispatch("setQuestionsList", shuffle.slice(0, 10));
+  },
+  head: {
+    title: "Quiz - André Monello"
   },
   methods: {
     ...mapActions({
-      setQuizStart: 'setQuizStart'
+      setQuizStart: "setQuizStart"
     }),
-    startQuiz () {
+    startQuiz() {
       this.setQuizStart(true);
-      this.$router.push('/instrucoes');
+      this.$router.push("/instrucoes");
     }
   }
 };

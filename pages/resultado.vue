@@ -1,13 +1,19 @@
 <template>
-  <div class="page page--resultado" :style="{ backgroundImage: 'url(' + this.$imageURL('bg4') + ')'}">
+  <div
+    :style="{ backgroundImage: 'url(' + this.$imageURL('bg4') + ')' }"
+    class="page page--resultado"
+  >
     <div class="page--resultado--container">
       <section class="page--resultado--wrapper">
         <div class="page--resultado--title">
-          <img :src="this.$imageURL('arte_indicadores')" alt="Logo">
-          <h2>Veja sua <em>performance</em> em cada indicador:</h2>
+          <img :src="this.$imageURL('arte_indicadores')" alt="Logo" />
+          <h2>
+            Veja sua
+            <em>performance</em> em cada indicador:
+          </h2>
         </div>
         <div class="page--resultado--score">
-          <score :final-result="true" />
+          <Score :final-result="true" />
         </div>
       </section>
     </div>
@@ -66,24 +72,23 @@
     &--score
       margin: auto
       width: 50%
-
 </style>
 
 <script>
-import Score from '../components/score';
+import Score from "../components/score";
 
 export default {
-  head: {
-    title: 'Resultado - André Monello'
+  components: {
+    Score
   },
-  validate ({ store, redirect }) {
+  validate({ store, redirect }) {
     if (!store.getters.getQuizFinished) {
-      redirect('/');
+      redirect("/");
     }
     return true;
   },
-  components: {
-    Score
+  head: {
+    title: "Resultado - André Monello"
   }
 };
 </script>
